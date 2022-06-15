@@ -12,11 +12,11 @@ import java.util.Optional;
 public interface IEmployeeService {
     Employee addEmployee(Employee employee);
 
-//    List<Employee> getAllEmployees();
-//
-//    Optional<Employee> getById(int id);
-//
-//    String deleteById(int id);
-//
-//    Employee editEmployee(EmployeeDTO employeeDtO, int id);
+    List<Employee> getAllEmployees();
+
+    Optional<Employee> getById(int id);
+
+    String deleteById(int id);
+
+    Employee editEmployee(EmployeeDTO employeeDtO, int id);
 }

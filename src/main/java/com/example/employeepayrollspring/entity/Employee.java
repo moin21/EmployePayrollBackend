@@ -4,6 +4,7 @@ import com.example.employeepayrollspring.dto.EmployeeDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,8 +19,7 @@ import java.util.List;
  */
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Employee {
     /**
      * Id: Auto generated id by using id and Generated values Annotation.
@@ -34,40 +34,59 @@ public class Employee {
     @CollectionTable(name = "department", joinColumns = @JoinColumn(name = "id"))
     public List<String> department;
     int salary;
-    String mobileNumber;
 
-    // LocalDate startDate;
+    LocalDate startDate;
     public String notes;
 
-    /**
-     * Constructor : Using employee object and Id
-     *
-     * @param id          - Id of employee
-     * @param employeeDTO - employeeDTO object.
-     */
+    public Employee(int id, Employee employee) {
+        this.id = id;
+        this.name = employee.name;
+        this.profilePic = employee.profilePic;
+        this.gender = employee.gender;
+        this.department = employee.department;
+
+        this.notes = employee.notes;
+        this.salary = employee.salary;
+        this.startDate = employee.startDate;
+    }
+
+    public Employee() {
+
+    }
+
     public Employee(int id, EmployeeDTO employeeDTO) {
         this.id = id;
         this.name = employeeDTO.name;
         this.profilePic = employeeDTO.profilePic;
         this.gender = employeeDTO.gender;
         this.department = employeeDTO.department;
+
         this.notes = employeeDTO.notes;
         this.salary = employeeDTO.salary;
-        // this.startDate = employeeDTO.startDate;
+        this.startDate = employeeDTO.startDate;
     }
 
-    /**
-     * Constructor: Using employeeDTO
-     * 
-     * @param employeeDTO - employeeDTO object.
-     */
+    public Employee(Employee employee) {
+        this.id = employee.id;
+        this.name = employee.name;
+        this.profilePic = employee.profilePic;
+        this.gender = employee.gender;
+        this.department = employee.department;
+
+        this.notes = employee.notes;
+        this.salary = employee.salary;
+        this.startDate = employee.startDate;
+
+    }
+
     public Employee(EmployeeDTO employeeDTO) {
         this.name = employeeDTO.name;
         this.profilePic = employeeDTO.profilePic;
         this.gender = employeeDTO.gender;
         this.department = employeeDTO.department;
+
         this.notes = employeeDTO.notes;
         this.salary = employeeDTO.salary;
-        // this.startDate = employeeDTO.startDate;
+        this.startDate = employeeDTO.startDate;
     }
 }

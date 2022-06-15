@@ -37,52 +37,56 @@ public class EmployeeService implements IEmployeeService {
      *
      * @return - implementation of findAll method from EmployeeRepository.
      */
-    // public List<Employee> getAllEmployees() {
-    // if (employeeRepository.findAll().isEmpty()) {
-    // throw new CustomException("No employee in database.");
-    // } else return employeeRepository.findAll();
-    // }
-    //
-    //
-    // /**
-    // * Method to get employees using Id from database.
-    // *
-    // * @param id - Id of employee required to get from database.
-    // * @return - implementation of findById method from EmployeeRepository.
-    // */
-    // public Optional<Employee> getById(int id) {
-    // if (employeeRepository.findById(id).isPresent()) {
-    // return employeeRepository.findById(id);
-    // } else throw new CustomException("No employee matches withemployee_
-    //
-    // /**
-    // * Method to delete employee using Id from Database.
-    // *
-    // * @param id - Id of employee required to delete from database.
-    // * @return - implementation of deleteById method from EmployeeRepository.
-    // */
-    // public String deleteById(int id) {
-    // if (employeeRepository.findById(id).isPresent()) {
-    // employeeRepository.deleteById(id);
-    // return "Employee with ID: " + id + " is Deleted Successfully!!";
-    // } else throw new CustomException("No employee matches with the given ID");
-    // }
-    //
-    // /**
-    // * Method to edit existing employee in database.
-    // * If there is a match by passed id, we create a new employee object using the
-    // same id - employee1.
-    // * Passing the object to the save method.
-    // *
-    // * @param employeeDTO - employee object with new field values.
-    // * @param id - Id of employee required to delete from database.
-    // * @return - implementation of save method from EmployeeRepository.
-    // */
-    // public Employee editEmployee(EmployeeDTO employeeDTO, int id) {
-    // if (employeeRepository.findById(id).isPresent()) {
-    // Employee employee1 = new Employee(id, employeeDTO);
-    // Employee alpha = employeeRepository.save(employee1);
-    // return alpha;
-    // } else throw new CustomException("No employee matches with the given ID");
-    // }
+    public List<Employee> getAllEmployees() {
+        if (employeeRepository.findAll().isEmpty()) {
+            throw new CustomException("No employee in database.");
+        } else
+            return employeeRepository.findAll();
+    }
+
+    /**
+     * Method to get employees using Id from database.
+     *
+     * @param id - Id of employee required to get from database.
+     * @return - implementation of findById method from EmployeeRepository.
+     */
+    public Optional<Employee> getById(int id) {
+        if (employeeRepository.findById(id).isPresent()) {
+            return employeeRepository.findById(id);
+        } else
+            throw new CustomException("No employee matches withemployee");
+    }
+
+    /**
+     * Method to delete employee using Id from Database.
+     *
+     * @param id - Id of employee required to delete from database.
+     * @return - implementation of deleteById method from EmployeeRepository.
+     */
+    public String deleteById(int id) {
+        if (employeeRepository.findById(id).isPresent()) {
+            employeeRepository.deleteById(id);
+            return "Employee with ID: " + id + " is Deleted Successfully!!";
+        } else
+            throw new CustomException("No employee matches with the given ID");
+    }
+
+    /**
+     * Method to edit existing employee in database.
+     * If there is a match by passed id, we create a new employee object using the
+     * same id - employee1.
+     * Passing the object to the save method.
+     *
+     * @param employeeDTO - employee object with new field values.
+     * @param id          - Id of employee required to delete from database.
+     * @return - implementation of save method from EmployeeRepository.
+     */
+    public Employee editEmployee(EmployeeDTO employeeDTO, int id) {
+        if (employeeRepository.findById(id).isPresent()) {
+            Employee employee1 = new Employee(id, employeeDTO);
+            Employee alpha = employeeRepository.save(employee1);
+            return alpha;
+        } else
+            throw new CustomException("No employee matches with the given ID");
+    }
 }
