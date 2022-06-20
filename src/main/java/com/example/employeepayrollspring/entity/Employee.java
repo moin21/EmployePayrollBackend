@@ -33,9 +33,9 @@ public class Employee {
     @ElementCollection
     @CollectionTable(name = "department", joinColumns = @JoinColumn(name = "id"))
     public List<String> department;
-    int salary;
+    public int salary;
 
-    LocalDate startDate;
+    public LocalDate startDate;
     public String notes;
 
     public Employee() {
