@@ -38,18 +38,6 @@ public class Employee {
     LocalDate startDate;
     public String notes;
 
-    public Employee(int id, Employee employee) {
-        this.id = id;
-        this.name = employee.name;
-        this.profilePic = employee.profilePic;
-        this.gender = employee.gender;
-        this.department = employee.department;
-
-        this.notes = employee.notes;
-        this.salary = employee.salary;
-        this.startDate = employee.startDate;
-    }
-
     public Employee() {
 
     }
@@ -64,19 +52,6 @@ public class Employee {
         this.notes = employeeDTO.notes;
         this.salary = employeeDTO.salary;
         this.startDate = employeeDTO.startDate;
-    }
-
-    public Employee(Employee employee) {
-        this.id = employee.id;
-        this.name = employee.name;
-        this.profilePic = employee.profilePic;
-        this.gender = employee.gender;
-        this.department = employee.department;
-
-        this.notes = employee.notes;
-        this.salary = employee.salary;
-        this.startDate = employee.startDate;
-
     }
 
     public Employee(EmployeeDTO employeeDTO) {

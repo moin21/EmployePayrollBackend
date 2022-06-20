@@ -84,8 +84,8 @@ public class EmployeeService implements IEmployeeService {
     public Employee editEmployee(EmployeeDTO employeeDTO, int id) {
         if (employeeRepository.findById(id).isPresent()) {
             Employee employee1 = new Employee(id, employeeDTO);
-            Employee alpha = employeeRepository.save(employee1);
-            return alpha;
+            return employeeRepository.save(employee1);
+
         } else
             throw new CustomException("No employee matches with the given ID");
     }
